@@ -6,14 +6,22 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
+    private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
         int[] intList = getInt(5);
         int[] sorted = sortInt(intList);
         printArray(sorted);
+
+        System.out.println("Enter how many numbers to enter");
+        int count = s.nextInt();
+        s.nextLine();
+        int[] returnedArray = readInteger(count);
+        int returnedMin = findMin(returnedArray);
+        System.out.println("min = " + returnedMin);
     }
 
     public static int[] getInt(int amount) {
-        Scanner s = new Scanner(System.in);
+
         int[] list = new int[amount];
         System.out.println("Enter " + amount + " numbers:\r");
 
@@ -51,5 +59,27 @@ public class Main {
             }
         }
         return sorted;
+    }
+
+    private static int[] readInteger(int count) {
+        int[] myArray = new int[count];
+        for (int x=0; x<myArray.length; x++) {
+            System.out.println("Enter number: ");
+            int num = s.nextInt();
+            s.nextLine();
+            myArray[x] = num;
+        }
+        return myArray;
+    }
+
+    private static int findMin(int[] array) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            int value = array[i];
+            if (value < min) {
+                min = value;
+            }
+        }
+        return min;
     }
 }
