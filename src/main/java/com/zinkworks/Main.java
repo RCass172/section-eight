@@ -18,6 +18,14 @@ public class Main {
         int[] returnedArray = readInteger(count);
         int returnedMin = findMin(returnedArray);
         System.out.println("min = " + returnedMin);
+
+        int[] arr = new int[5];
+        arr[0] = 2;
+        arr[1] = 28;
+        arr[2] = 46;
+        arr[3] = 7;
+        arr[4] = 52;
+        reverse(arr);
     }
 
     public static int[] getInt(int amount) {
@@ -81,5 +89,16 @@ public class Main {
             }
         }
         return min;
+    }
+
+    private static void reverse(int[] arr) {
+        System.out.println("Array = " + Arrays.toString(arr));
+        int[] reverse = new int[arr.length];
+        int num = 0;
+        for (int x=arr.length-1; x>=0;x--) {
+            reverse[x] = arr[num];
+            num += 1;
+        }
+        System.out.println("Reversed array = " + Arrays.toString(reverse));
     }
 }
