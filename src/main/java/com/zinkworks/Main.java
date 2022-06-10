@@ -26,6 +26,45 @@ public class Main {
         arr[3] = 7;
         arr[4] = 52;
         reverse(arr);
+
+        // Banking exercise
+        Bank bank = new Bank("National Irish Bank");
+
+        if(bank.addBranch("Mullingar")) {
+            System.out.println("Mullingar branch created");
+        }
+
+        bank.addCustomer("Mullingar", "Ruth", 50.05);
+        bank.addCustomer("Mullingar", "Mike", 175.34);
+        bank.addCustomer("Mullingar", "Percy", 220.12);
+
+        bank.addBranch("Athlone");
+        bank.addCustomer("Athlone", "Bob", 150.54);
+
+        bank.addCustomerTransaction("Mullingar", "Ruth", 44.22);
+        bank.addCustomerTransaction("Mullingar", "Ruth", 12.44);
+        bank.addCustomerTransaction("Mullingar", "Mike", 1.65);
+
+        bank.listCustomers("Mullingar", true);
+        bank.listCustomers("Athlone", true);
+
+        bank.addBranch("Galway");
+
+        if(!bank.addCustomer("Galway", "Brian", 5.53)) {
+            System.out.println("Error Galway branch does not exist");
+        }
+
+        if(!bank.addBranch("Mullingar")) {
+            System.out.println("Mullingar branch already exists");
+        }
+
+        if(!bank.addCustomerTransaction("Mullingar", "Fergus", 52.33)) {
+            System.out.println("Customer does not exist at branch");
+        }
+
+        if(!bank.addCustomer("Mullingar", "Ruth", 12.21)) {
+            System.out.println("Customer Ruth already exists");
+        }
     }
 
     public static int[] getInt(int amount) {
